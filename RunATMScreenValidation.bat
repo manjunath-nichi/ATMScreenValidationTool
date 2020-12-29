@@ -1,0 +1,1 @@
+start ./jre1.6.0_45/bin/javaw.exe -jar -Xmx1024m ./lib/atmscreenvalidation.jar
