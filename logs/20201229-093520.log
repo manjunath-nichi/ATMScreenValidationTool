@@ -1,0 +1,43 @@
+12/29/20 09:35:20 Start Reading application config file :application.config.xml
+  12/29/20 09:35:20 XMLFILEPATH: C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:35:20 CSSFILEPATH: C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:35:20 IMAGEFOLDERPATH: C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:35:20 OUTPUTPATH: C:\Users\nichiuser\Downloads\RBL\RBL\output
+  12/29/20 09:35:20 End Reading application config file :application.config.xml
+  12/29/20 09:35:20 Start Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:35:20 End Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:35:20 Start Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:35:20 End Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:35:20 Start Screen Validation
+  12/29/20 09:35:20 Start of showing TouchArea function
+  12/29/20 09:35:20 End of showing TouchArea function 
+  12/29/20 09:35:20 Start sliding images 
+  12/29/20 09:35:20 Start Listing images from path:C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:35:20 End Listing images from path:C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:35:20 Start validating each image
+  12/29/20 09:35:20 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin001.jpg
+  12/29/20 09:35:21 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin001.jpg
+  12/29/20 09:35:21 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin001.jpg
+  12/29/20 09:35:21 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin002.jpg
+  12/29/20 09:35:21 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin002.jpg
+  12/29/20 09:35:21 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin002.jpg
+  12/29/20 09:35:22 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin003.jpg
+  12/29/20 09:35:22 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin003.jpg
+  12/29/20 09:35:22 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin003.jpg
+  12/29/20 09:35:22 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin004.jpg
+  12/29/20 09:35:23 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin004.jpg
+  12/29/20 09:35:23 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin004.jpg
+  12/29/20 09:35:23 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin005.jpg
+  12/29/20 09:35:24 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin005.jpg
+  12/29/20 09:35:24 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin005.jpg
+  12/29/20 09:35:24 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin006.jpg
+  12/29/20 09:35:24 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin006.jpg
+  12/29/20 09:35:24 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin006.jpg
+  12/29/20 09:35:24 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin007.jpg
+  12/29/20 09:35:25 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin007.jpg
+  12/29/20 09:35:25 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin007.jpg
+  12/29/20 09:35:25 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin009.jpg
+  12/29/20 09:35:26 Start taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin009.jpg
+  12/29/20 09:35:26 End taking screenshot for :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin009.jpg
+  12/29/20 09:35:26 Set as backgound image :C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL\hin010.jpg
+  

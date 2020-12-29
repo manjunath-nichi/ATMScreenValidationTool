@@ -1,0 +1,19 @@
+12/28/20 18:23:27 Start Reading application config file :application.config.xml
+  12/28/20 18:23:27 End Reading application config file :application.config.xml
+  12/28/20 18:23:27 Start Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/28/20 18:23:27 End Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/28/20 18:23:27 Start Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/28/20 18:23:27 End Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/28/20 18:23:27 Start Screen Validation
+  12/28/20 18:23:27 Start Listing images from path:DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/28/20 18:23:27 End Listing images from path:DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/28/20 18:23:27 Start of showing TouchArea function
+  12/28/20 18:23:28 End of showing TouchArea function 
+  12/28/20 18:23:28 Start sliding images 
+  12/28/20 18:23:28 Start validating each image
+  java.lang.NullPointerException
+	at com.nichi.view.ImageSlider.slideImages(ImageSlider.java:146)
+	at com.nichi.view.ImageSlider.createScreen(ImageSlider.java:63)
+	at com.nichi.controller.Launcher.main(Launcher.java:56)
+
+  

@@ -1,0 +1,21 @@
+12/29/20 09:32:20 Start Reading application config file :application.config.xml
+  12/29/20 09:32:20 XMLFILEPATH: C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:32:20 CSSFILEPATH: C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:20 IMAGEFOLDERPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:32:20 OUTPUTPATH: C:\Users\nichiuser\Downloads\RBL\RBL\output
+  12/29/20 09:32:20 End Reading application config file :application.config.xml
+  12/29/20 09:32:20 Start Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:20 End Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:20 Start Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:32:20 End Reading XML file :C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:32:20 Start Screen Validation
+  12/29/20 09:32:20 Start of showing TouchArea function
+  12/29/20 09:32:20 End of showing TouchArea function 
+  12/29/20 09:32:20 Start sliding images 
+  12/29/20 09:32:20 Start Listing images from path:DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  java.lang.Exception: DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL-> path not found
+	at com.nichi.view.ImageSlider.slideImages(ImageSlider.java:141)
+	at com.nichi.view.ImageSlider.createScreen(ImageSlider.java:56)
+	at com.nichi.controller.Launcher.main(Launcher.java:68)
+
+  

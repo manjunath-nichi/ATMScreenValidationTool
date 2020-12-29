@@ -1,0 +1,11 @@
+12/28/20 18:22:55 Start Reading application config file :application.config.xml
+  12/28/20 18:22:55 End Reading application config file :application.config.xml
+  12/28/20 18:22:55 Start Reading CSS file :DC:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  java.io.FileNotFoundException: DC:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css (The filename, directory name, or volume label syntax is incorrect)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:120)
+	at java.io.FileInputStream.<init>(FileInputStream.java:79)
+	at com.nichi.util.FileOperations.readCSSFile(FileOperations.java:97)
+	at com.nichi.controller.Launcher.main(Launcher.java:43)
+
+  

@@ -1,0 +1,13 @@
+12/29/20 09:32:00 Start Reading application config file :application.config.xml
+  12/29/20 09:32:00 XMLFILEPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:32:00 CSSFILEPATH: C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:00 IMAGEFOLDERPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:32:00 OUTPUTPATH: C:\Users\nichiuser\Downloads\RBL\RBL\output
+  12/29/20 09:32:00 End Reading application config file :application.config.xml
+  12/29/20 09:32:00 Start Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:00 End Reading CSS file :C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:32:00 Start Reading XML file :DC:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  java.lang.Exception: DC:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml - > File does not exists 
+	at com.nichi.controller.Launcher.main(Launcher.java:59)
+
+  

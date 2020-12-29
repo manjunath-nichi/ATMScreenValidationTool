@@ -1,0 +1,10 @@
+12/29/20 09:30:39 Start Reading application config file :application.config.xml
+  12/29/20 09:30:39 XMLFILEPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml
+  12/29/20 09:30:39 CSSFILEPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css
+  12/29/20 09:30:39 IMAGEFOLDERPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL
+  12/29/20 09:30:39 OUTPUTPATH: DC:\Users\nichiuser\Downloads\RBL\RBL\output
+  java.lang.Exception: DC:\Users\nichiuser\Downloads\RBL\RBL\output-> path not found
+	at com.nichi.util.FileOperations.readConfigFile(FileOperations.java:81)
+	at com.nichi.controller.Launcher.main(Launcher.java:38)
+
+  
