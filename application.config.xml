@@ -1,9 +1,10 @@
 <?xml version="1.0"?>  
 <APPLICATION>  
     <PARAM>  
-        <XMLFILEPATH>C:\Users\nichiuser\Downloads\RBL\RBL\screen-contentsdata.xml</XMLFILEPATH>
-		<CSSFILEPATH>C:\Users\nichiuser\Downloads\RBL\RBL\0000_Ndc.css</CSSFILEPATH>
-		<IMAGEFOLDERPATH>C:\Users\nichiuser\Downloads\RBL\RBL\SSDS\SSDS\DLL</IMAGEFOLDERPATH >
-		<OUTPUTPATH>C:\Users\nichiuser\Downloads\RBL\RBL\output</OUTPUTPATH>
+        <XMLFILEPATH>C:\Users\nichiuser\Downloads\S4PICT\screen-contentsdata.xml</XMLFILEPATH>
+		<CSSFILEPATH>C:\Users\nichiuser\Downloads\S4PICT\0000_Ndc.css</CSSFILEPATH>
+		<IMAGEFOLDERPATH>C:\Users\nichiuser\Downloads\S4PICT\images</IMAGEFOLDERPATH >
+		<OUTPUTPATH>C:\Users\nichiuser\Downloads\S4PICT\output</OUTPUTPATH>
+		<CORRECTIONSCREENTAG>000</CORRECTIONSCREENTAG>
     </PARAM>  
 </APPLICATION> 
