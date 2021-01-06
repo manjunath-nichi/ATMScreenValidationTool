@@ -17,6 +17,7 @@ public class FileOperations {
 	static public String CSSFILEPATH;
 	static public String OUTPUTPATH;
 	static public String IMAGEFOLDERPATH;
+	static public String CORRECTIONSCREENTAG;
 
 	static public int BTNFDK1keyLEFT;
 	static public int BTNFDK1keyTOP;
@@ -60,19 +61,38 @@ public class FileOperations {
 			System.out.println("\nPARENT Node :" + node.getNodeName());
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) node;
-				LoggerClass.logInfo(
-						"XMLFILEPATH: " + eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent());
-				XMLFILEPATH = eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent();
-				LoggerClass.logInfo(
-						"CSSFILEPATH: " + eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent());
-				CSSFILEPATH = eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent();
-				LoggerClass.logInfo("IMAGEFOLDERPATH: "
-						+ eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent());
-				IMAGEFOLDERPATH = eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent();
-				LoggerClass
-						.logInfo("OUTPUTPATH: " + eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent());
-				OUTPUTPATH = eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent();
+				if(eElement.getElementsByTagName("XMLFILEPATH").getLength() > 0) {
+					LoggerClass.logInfo("XMLFILEPATH: " + eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent());
+					XMLFILEPATH = eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent();
+				}else{
+					throw new Exception("missing XMLFILEPATH setting in config file: " + configFile);
+				}
+				if(eElement.getElementsByTagName("CSSFILEPATH").getLength() > 0) {
+					LoggerClass.logInfo("CSSFILEPATH: " + eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent());
+					CSSFILEPATH = eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent();
+				}else{
+					throw new Exception("missing CSSFILEPATH setting in config file: " + configFile);
+				}
+				if(eElement.getElementsByTagName("IMAGEFOLDERPATH").getLength() > 0) {
+					LoggerClass.logInfo("IMAGEFOLDERPATH: " + eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent());
+					IMAGEFOLDERPATH = eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent();
+				}else{
+					throw new Exception("missing IMAGEFOLDERPATH setting in config file: " + configFile);
+				}
+				if(eElement.getElementsByTagName("OUTPUTPATH").getLength() > 0) {
+					LoggerClass.logInfo("OUTPUTPATH: " + eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent());
+					OUTPUTPATH = eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent();
+				}else{
+					throw new Exception("missing OUTPUTPATH setting in config file: " + configFile);
+				}
+				if(eElement.getElementsByTagName("CORRECTIONSCREENTAG").getLength() > 0) {
+					LoggerClass.logInfo("CORRECTIONSCREENTAG: " + eElement.getElementsByTagName("CORRECTIONSCREENTAG").item(0).getTextContent());
+					CORRECTIONSCREENTAG = eElement.getElementsByTagName("CORRECTIONSCREENTAG").item(0).getTextContent();
+				}else{
+					throw new Exception("missing CORRECTIONSCREENTAG setting in config file: " + configFile);
+				}
 				
+
 				File f = new File(FileOperations.OUTPUTPATH);
 				// check for folder existence
 				if (!f.exists()) {
@@ -94,7 +114,6 @@ public class FileOperations {
 		boolean BTNFDK7keyStyleStarted = false;
 		boolean BTNFDK8keyStyleStarted = false;
 		boolean BTNFDKSizeStarted = false;
-
 
 		FileInputStream fis = new FileInputStream(cssFilepath);
 		InputStreamReader isr = new InputStreamReader(fis, "UTF16");
@@ -316,9 +335,9 @@ public class FileOperations {
 		BufferedReader reader = new BufferedReader(isr);
 
 		String line;
-		boolean indipendentTag = true;
+		boolean canReadData = false;
 		boolean commentedpart = false;
-		
+
 		while ((line = reader.readLine()) != null) {
 
 			////// Start skiping unwanted string
@@ -336,19 +355,18 @@ public class FileOperations {
 				continue;
 			}
 
-			// Check if its inside screen tag
-			if (line.indexOf("<screen id") >= 0) {
-				indipendentTag = false;
+			if (line.indexOf("<screen id = \"" + CORRECTIONSCREENTAG + "\">") >= 0) {
+				canReadData = true;
+				continue;
 			}
 			if (line.indexOf("</screen>") >= 0) {
-				indipendentTag = true;
+				canReadData = false;
 				continue;
 			}
 			// skip line if its inside screen tag
-			if (indipendentTag == false) {
+			if (canReadData == false) {
 				continue;
 			}
-
 			// Skip line other than _correctData
 			if (line.indexOf("_correctData") < 0) {
 				continue;
@@ -383,14 +401,24 @@ public class FileOperations {
 			}
 
 		}
+		if(		 fdk1reset == false ||  fdk2reset == false || fdk3reset == false ||
+				fdk4reset == false || fdk5reset == false || fdk6reset == false || fdk7reset == false || fdk8reset == false) {
+			LoggerClass.logInfo("WARNING:  No correction data been applied ! Correction data with give screen id:'" + CORRECTIONSCREENTAG + "' may not be found !");
+		}
+		
 		reader.close(); // closes the stream and release the resources
 		isr.close();
 		fis.close();
 	}
 
 	private int resetYPositionForFDK(String targetLine) {
-		String[] values = targetLine.split(",");
-		String extraTop = values[2].substring(0, values[2].indexOf("<"));
-		return Integer.parseInt(extraTop);
+		int extraTop = 0;
+
+		if (targetLine.indexOf(",") >= 0) {
+			String[] values = targetLine.split(",");
+			extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("<")));
+		}
+
+		return extraTop;
 	}
 }
