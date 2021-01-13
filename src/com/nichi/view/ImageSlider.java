@@ -33,17 +33,17 @@ public class ImageSlider extends JFrame implements ActionListener {
 
 		// Create frame with ATM slandered size
 		setLayout(new BorderLayout());
-		setSize(FileOperations.PANEL_WIDTH, FileOperations.PANEL_HEIGHT);
+		setSize(FileOperations.PANEL_WIDTH + 30, FileOperations.PANEL_HEIGHT + 30);
 
 		// set it to full screen
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setUndecorated(true);
+		// setExtendedState(JFrame.MAXIMIZED_BOTH);
+		// setUndecorated(true);
 		setVisible(true);
 
 		// Add a label
 		label = new JLabel("", JLabel.LEFT);
-		add(label, BorderLayout.WEST);
+		add(new JScrollPane(label), BorderLayout.WEST);
 		setState(ImageSlider.ICONIFIED);
 
 		// Start of showing TouchArea function
@@ -142,13 +142,13 @@ public class ImageSlider extends JFrame implements ActionListener {
 			throw new Exception(FileOperations.IMAGEFOLDERPATH + "-> path not found");
 		}
 		String[] imageNames = f.list();
-		// check image file presence 
+		// check image file presence
 		if (imageNames.length <= 0) {
-			throw new Exception("No file found at -> " + FileOperations.IMAGEFOLDERPATH );
+			throw new Exception("No file found at -> " + FileOperations.IMAGEFOLDERPATH);
 		}
 		LoggerClass.logInfo("End Listing images from path:" + FileOperations.IMAGEFOLDERPATH);
 		// End Listing images from path
-		
+
 		// Start validating each image
 		LoggerClass.logInfo("Start validating each image");
 		for (String pathname : imageNames) {
@@ -165,7 +165,6 @@ public class ImageSlider extends JFrame implements ActionListener {
 			LoggerClass.logInfo("Start taking screenshot for :" + fileFullPath);
 			String format = "jpg";
 
-			
 			String fileName = FileOperations.OUTPUTPATH + "\\TestResult_" + pathname;
 
 			BufferedImage image = new BufferedImage(FileOperations.PANEL_WIDTH, FileOperations.PANEL_HEIGHT,
