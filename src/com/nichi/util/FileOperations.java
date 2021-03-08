@@ -330,85 +330,98 @@ public class FileOperations {
 		boolean fdk7reset = false;
 		boolean fdk8reset = false;
 
-		FileInputStream fis = new FileInputStream(xmlFilepath);
-		InputStreamReader isr = new InputStreamReader(fis, "UTF16");
-		BufferedReader reader = new BufferedReader(isr);
+		final String[] encodings = { "UTF-16LE", "UTF-16", "UTF-8", "US-ASCII", "ISO-8859-1", "UTF-16BE" };
 
-		String line;
-		boolean canReadData = false;
-		boolean commentedpart = false;
+		for (String encoding : encodings) {
+			FileInputStream fis = new FileInputStream(xmlFilepath);
+			InputStreamReader isr = new InputStreamReader(fis, encoding);
+			BufferedReader reader = new BufferedReader(isr);
 
-		while ((line = reader.readLine()) != null) {
+			String line;
+			boolean canReadData = false;
+			boolean commentedpart = false;
+			
+			while ((line = reader.readLine()) != null) {
+				
+				////// Start skiping unwanted string
+				
+				// Check if its commented
+				if (line.indexOf("<!--") >= 0) {
+					commentedpart = true;
+				}
+				if (line.indexOf("-->") >= 0) {
+					commentedpart = false;
+					continue;
+				}
+				// skip line if its commented
+				if (commentedpart == true) {
+					continue;
+				}
 
-			////// Start skiping unwanted string
+				if (line.indexOf("<screen id = \"" + CORRECTIONSCREENTAG + "\">") >= 0) {
+					canReadData = true;
+					continue;
+				}
+				if (line.indexOf("</screen>") >= 0) {
+					canReadData = false;
+					continue;
+				}
+				// skip line if its inside screen tag
+				if (canReadData == false) {
+					continue;
+				}
+				// Skip line other than _correctData
+				if (line.indexOf("_correctData") < 0) {
+					continue;
+				}
 
-			// Check if its commented
-			if (line.indexOf("<!--") >= 0) {
-				commentedpart = true;
-			}
-			if (line.indexOf("-->") >= 0) {
-				commentedpart = false;
-				continue;
-			}
-			// skip line if its commented
-			if (commentedpart == true) {
-				continue;
+				///// end of skiping unwanted string
+
+				if (line.indexOf("fdkA_correctData") > 0 && fdk1reset == false) {
+					BTNFDK1keyTOP = BTNFDK1keyTOP + resetYPositionForFDK(line);
+					fdk1reset = true;
+				} else if (line.indexOf("fdkB_correctData") >= 0 && fdk2reset == false) {
+					BTNFDK2keyTOP = BTNFDK2keyTOP + resetYPositionForFDK(line);
+					fdk2reset = true;
+				} else if (line.indexOf("fdkC_correctData") >= 0 && fdk3reset == false) {
+					BTNFDK3keyTOP = BTNFDK3keyTOP + resetYPositionForFDK(line);
+					fdk3reset = true;
+				} else if (line.indexOf("fdkD_correctData") >= 0 && fdk4reset == false) {
+					BTNFDK4keyTOP = BTNFDK4keyTOP + resetYPositionForFDK(line);
+					fdk4reset = true;
+				} else if (line.indexOf("fdkF_correctData") >= 0 && fdk5reset == false) {
+					BTNFDK5keyTOP = BTNFDK5keyTOP + resetYPositionForFDK(line);
+					fdk5reset = true;
+				} else if (line.indexOf("fdkG_correctData") >= 0 && fdk6reset == false) {
+					BTNFDK6keyTOP = BTNFDK6keyTOP + resetYPositionForFDK(line);
+					fdk6reset = true;
+				} else if (line.indexOf("fdkH_correctData") >= 0 && fdk7reset == false) {
+					BTNFDK7keyTOP = BTNFDK7keyTOP + resetYPositionForFDK(line);
+					fdk7reset = true;
+				} else if (line.indexOf("fdkI_correctData") >= 0 && fdk8reset == false) {
+					BTNFDK8keyTOP = BTNFDK8keyTOP + resetYPositionForFDK(line);
+					fdk8reset = true;
+				}
+
 			}
 
-			if (line.indexOf("<screen id = \"" + CORRECTIONSCREENTAG + "\">") >= 0) {
-				canReadData = true;
-				continue;
-			}
-			if (line.indexOf("</screen>") >= 0) {
-				canReadData = false;
-				continue;
-			}
-			// skip line if its inside screen tag
-			if (canReadData == false) {
-				continue;
-			}
-			// Skip line other than _correctData
-			if (line.indexOf("_correctData") < 0) {
-				continue;
+			if (fdk1reset == true && fdk2reset == true && fdk3reset == true && fdk4reset == true && fdk5reset == true
+					&& fdk6reset == true && fdk7reset == true && fdk8reset == true) {
+				break;
 			}
 
-			///// end of skiping unwanted string
-
-			if (line.indexOf("fdkA_correctData") > 0 && fdk1reset == false) {
-				BTNFDK1keyTOP = BTNFDK1keyTOP + resetYPositionForFDK(line);
-				fdk1reset = true;
-			} else if (line.indexOf("fdkB_correctData") >= 0 && fdk2reset == false) {
-				BTNFDK2keyTOP = BTNFDK2keyTOP + resetYPositionForFDK(line);
-				fdk2reset = true;
-			} else if (line.indexOf("fdkC_correctData") >= 0 && fdk3reset == false) {
-				BTNFDK3keyTOP = BTNFDK3keyTOP + resetYPositionForFDK(line);
-				fdk3reset = true;
-			} else if (line.indexOf("fdkD_correctData") >= 0 && fdk4reset == false) {
-				BTNFDK4keyTOP = BTNFDK4keyTOP + resetYPositionForFDK(line);
-				fdk4reset = true;
-			} else if (line.indexOf("fdkF_correctData") >= 0 && fdk5reset == false) {
-				BTNFDK5keyTOP = BTNFDK5keyTOP + resetYPositionForFDK(line);
-				fdk5reset = true;
-			} else if (line.indexOf("fdkG_correctData") >= 0 && fdk6reset == false) {
-				BTNFDK6keyTOP = BTNFDK6keyTOP + resetYPositionForFDK(line);
-				fdk6reset = true;
-			} else if (line.indexOf("fdkH_correctData") >= 0 && fdk7reset == false) {
-				BTNFDK7keyTOP = BTNFDK7keyTOP + resetYPositionForFDK(line);
-				fdk7reset = true;
-			} else if (line.indexOf("fdkI_correctData") >= 0 && fdk8reset == false) {
-				BTNFDK8keyTOP = BTNFDK8keyTOP + resetYPositionForFDK(line);
-				fdk8reset = true;
-			}
+			reader.close(); // closes the stream and release the resources
+			isr.close();
+			fis.close();
 
 		}
-		if(		 fdk1reset == false ||  fdk2reset == false || fdk3reset == false ||
-				fdk4reset == false || fdk5reset == false || fdk6reset == false || fdk7reset == false || fdk8reset == false) {
-			LoggerClass.logInfo("WARNING:  No correction data been applied ! Correction data with give screen id:'" + CORRECTIONSCREENTAG + "' may not be found !");
+
+		if (fdk1reset == false || fdk2reset == false || fdk3reset == false || fdk4reset == false || fdk5reset == false
+				|| fdk6reset == false || fdk7reset == false || fdk8reset == false) {
+			LoggerClass.logInfo("WARNING:  No correction data been applied ! Correction data with give screen id:'"
+					+ CORRECTIONSCREENTAG + "' may not be found !");
 		}
-		
-		reader.close(); // closes the stream and release the resources
-		isr.close();
-		fis.close();
+
 	}
 
 	private int resetYPositionForFDK(String targetLine) {
@@ -416,7 +429,11 @@ public class FileOperations {
 
 		if (targetLine.indexOf(",") >= 0) {
 			String[] values = targetLine.split(",");
-			extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("<")));
+			if (values[2].indexOf("<") > 0) {
+				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("<")));
+			} else {
+				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("/")));
+			}
 		}
 
 		return extraTop;
