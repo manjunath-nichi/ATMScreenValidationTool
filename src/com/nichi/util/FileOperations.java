@@ -61,37 +61,41 @@ public class FileOperations {
 			System.out.println("\nPARENT Node :" + node.getNodeName());
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) node;
-				if(eElement.getElementsByTagName("XMLFILEPATH").getLength() > 0) {
-					LoggerClass.logInfo("XMLFILEPATH: " + eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent());
+				if (eElement.getElementsByTagName("XMLFILEPATH").getLength() > 0) {
+					LoggerClass.logInfo(
+							"XMLFILEPATH: " + eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent());
 					XMLFILEPATH = eElement.getElementsByTagName("XMLFILEPATH").item(0).getTextContent();
-				}else{
+				} else {
 					throw new Exception("missing XMLFILEPATH setting in config file: " + configFile);
 				}
-				if(eElement.getElementsByTagName("CSSFILEPATH").getLength() > 0) {
-					LoggerClass.logInfo("CSSFILEPATH: " + eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent());
+				if (eElement.getElementsByTagName("CSSFILEPATH").getLength() > 0) {
+					LoggerClass.logInfo(
+							"CSSFILEPATH: " + eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent());
 					CSSFILEPATH = eElement.getElementsByTagName("CSSFILEPATH").item(0).getTextContent();
-				}else{
+				} else {
 					throw new Exception("missing CSSFILEPATH setting in config file: " + configFile);
 				}
-				if(eElement.getElementsByTagName("IMAGEFOLDERPATH").getLength() > 0) {
-					LoggerClass.logInfo("IMAGEFOLDERPATH: " + eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent());
+				if (eElement.getElementsByTagName("IMAGEFOLDERPATH").getLength() > 0) {
+					LoggerClass.logInfo("IMAGEFOLDERPATH: "
+							+ eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent());
 					IMAGEFOLDERPATH = eElement.getElementsByTagName("IMAGEFOLDERPATH").item(0).getTextContent();
-				}else{
+				} else {
 					throw new Exception("missing IMAGEFOLDERPATH setting in config file: " + configFile);
 				}
-				if(eElement.getElementsByTagName("OUTPUTPATH").getLength() > 0) {
-					LoggerClass.logInfo("OUTPUTPATH: " + eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent());
+				if (eElement.getElementsByTagName("OUTPUTPATH").getLength() > 0) {
+					LoggerClass.logInfo(
+							"OUTPUTPATH: " + eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent());
 					OUTPUTPATH = eElement.getElementsByTagName("OUTPUTPATH").item(0).getTextContent();
-				}else{
+				} else {
 					throw new Exception("missing OUTPUTPATH setting in config file: " + configFile);
 				}
-				if(eElement.getElementsByTagName("CORRECTIONSCREENTAG").getLength() > 0) {
-					LoggerClass.logInfo("CORRECTIONSCREENTAG: " + eElement.getElementsByTagName("CORRECTIONSCREENTAG").item(0).getTextContent());
+				if (eElement.getElementsByTagName("CORRECTIONSCREENTAG").getLength() > 0) {
+					LoggerClass.logInfo("CORRECTIONSCREENTAG: "
+							+ eElement.getElementsByTagName("CORRECTIONSCREENTAG").item(0).getTextContent());
 					CORRECTIONSCREENTAG = eElement.getElementsByTagName("CORRECTIONSCREENTAG").item(0).getTextContent();
-				}else{
+				} else {
 					throw new Exception("missing CORRECTIONSCREENTAG setting in config file: " + configFile);
 				}
-				
 
 				File f = new File(FileOperations.OUTPUTPATH);
 				// check for folder existence
@@ -340,11 +344,11 @@ public class FileOperations {
 			String line;
 			boolean canReadData = false;
 			boolean commentedpart = false;
-			
+
 			while ((line = reader.readLine()) != null) {
-				
+
 				////// Start skiping unwanted string
-				
+
 				// Check if its commented
 				if (line.indexOf("<!--") >= 0) {
 					commentedpart = true;
@@ -378,28 +382,28 @@ public class FileOperations {
 				///// end of skiping unwanted string
 
 				if (line.indexOf("fdkA_correctData") > 0 && fdk1reset == false) {
-					BTNFDK1keyTOP = BTNFDK1keyTOP + resetYPositionForFDK(line);
+					BTNFDK1keyTOP = BTNFDK1keyTOP + resetYPositionForFDK(line, "F");
 					fdk1reset = true;
 				} else if (line.indexOf("fdkB_correctData") >= 0 && fdk2reset == false) {
-					BTNFDK2keyTOP = BTNFDK2keyTOP + resetYPositionForFDK(line);
+					BTNFDK2keyTOP = BTNFDK2keyTOP + resetYPositionForFDK(line, "I");
 					fdk2reset = true;
 				} else if (line.indexOf("fdkC_correctData") >= 0 && fdk3reset == false) {
-					BTNFDK3keyTOP = BTNFDK3keyTOP + resetYPositionForFDK(line);
+					BTNFDK3keyTOP = BTNFDK3keyTOP + resetYPositionForFDK(line, "L");
 					fdk3reset = true;
 				} else if (line.indexOf("fdkD_correctData") >= 0 && fdk4reset == false) {
-					BTNFDK4keyTOP = BTNFDK4keyTOP + resetYPositionForFDK(line);
+					BTNFDK4keyTOP = BTNFDK4keyTOP + resetYPositionForFDK(line, "O");
 					fdk4reset = true;
 				} else if (line.indexOf("fdkF_correctData") >= 0 && fdk5reset == false) {
-					BTNFDK5keyTOP = BTNFDK5keyTOP + resetYPositionForFDK(line);
+					BTNFDK5keyTOP = BTNFDK5keyTOP + resetYPositionForFDK(line, "O");
 					fdk5reset = true;
 				} else if (line.indexOf("fdkG_correctData") >= 0 && fdk6reset == false) {
-					BTNFDK6keyTOP = BTNFDK6keyTOP + resetYPositionForFDK(line);
+					BTNFDK6keyTOP = BTNFDK6keyTOP + resetYPositionForFDK(line, "L");
 					fdk6reset = true;
 				} else if (line.indexOf("fdkH_correctData") >= 0 && fdk7reset == false) {
-					BTNFDK7keyTOP = BTNFDK7keyTOP + resetYPositionForFDK(line);
+					BTNFDK7keyTOP = BTNFDK7keyTOP + resetYPositionForFDK(line, "I");
 					fdk7reset = true;
 				} else if (line.indexOf("fdkI_correctData") >= 0 && fdk8reset == false) {
-					BTNFDK8keyTOP = BTNFDK8keyTOP + resetYPositionForFDK(line);
+					BTNFDK8keyTOP = BTNFDK8keyTOP + resetYPositionForFDK(line, "F");
 					fdk8reset = true;
 				}
 
@@ -424,18 +428,59 @@ public class FileOperations {
 
 	}
 
-	private int resetYPositionForFDK(String targetLine) {
+	//2021-05-13 1338-2 Add START change request
+	private int resetYPositionForFDK(String targetLine, String buttonType) {
 		int extraTop = 0;
 
-		if (targetLine.indexOf(",") >= 0) {
-			String[] values = targetLine.split(",");
-			if (values[2].indexOf("<") > 0) {
-				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("<")));
-			} else {
-				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("/")));
+		String[] column = targetLine.split("/");
+
+		for (int i = 0; i < column.length; i++) {
+
+			String columnValue = column[i];
+
+			if (columnValue.contains(">")) {
+				columnValue = columnValue.substring(columnValue.indexOf(">") + 1, columnValue.length());
 			}
+
+			if (columnValue.contains("<")) {
+				columnValue = columnValue.substring(0, columnValue.indexOf("<"));
+			}
+			
+			if (columnValue.indexOf(",") >= 0) {
+				String[] values = columnValue.split(",");				
+				extraTop = Integer.parseInt(values[2].substring(0, values[2].length()));
+			}
+
+			if (columnValue.startsWith("F") && buttonType.equals("F")) {
+				return extraTop;
+			} else if (columnValue.startsWith("I") && buttonType.equals("I")) {
+				return extraTop;
+			} else if (columnValue.startsWith("L") && buttonType.equals("L")) {
+				return extraTop;
+			} else if (columnValue.startsWith("O") && buttonType.equals("O")) {
+				return extraTop;
+			} 
+
 		}
 
-		return extraTop;
+		return 0;
 	}
+	//2021-05-13 1338-2 Add END change request 
+
+//2021-05-13 1338-2 delete START change request 
+//	private int resetYPositionForFDK(String targetLine) {
+//		int extraTop = 0;
+//
+//		if (targetLine.indexOf(",") >= 0) {
+//			String[] values = targetLine.split(",");
+//			if (values[2].indexOf("<") > 0) {
+//				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("<")));
+//			} else {
+//				extraTop = Integer.parseInt(values[2].substring(0, values[2].indexOf("/")));
+//			}
+//		}
+//
+//		return extraTop;
+//	}
+//2021-05-13 1338-2 delete END change request
 }
